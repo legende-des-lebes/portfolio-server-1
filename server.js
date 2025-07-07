@@ -46,7 +46,7 @@ app.post('/log', async (req, res) => {
 
   // Create log entry
   const logEntry = `${new Date().toISOString()} | Name: ${name}, Email: ${email}, IP: ${ip}${locationInfo}\n`;
-  const logPath = path.join(__dirname, 'index', 'logins.txt');
+  const logPath = path.join(__dirname, 'Index', 'logins.txt');
 
   // Append log entry to file
   fs.appendFile(logPath, logEntry, (err) => {
