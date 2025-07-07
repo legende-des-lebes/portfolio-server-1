@@ -10,7 +10,7 @@ const PORT = 3000;
 app.use(express.json());
 
 // Serve static files from the "index" directory
-app.use(express.static(path.join(__dirname, 'index')));
+app.use(express.static(path.join(__dirname, 'Index')));
 
 // POST endpoint for logging verification data
 app.post('/log', async (req, res) => {
