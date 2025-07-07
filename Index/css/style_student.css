@@ -1,0 +1,112 @@
+:root {
+  --bg: #0f0f0f;
+  --text: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --accent: #00ffd5;
+  --font: 'Segoe UI', 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+header {
+  padding: 30px;
+  text-align: center;
+  font-size: 2.2em;
+  font-weight: 600;
+  background: transparent;
+  backdrop-filter: blur(5px);
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+p {
+  font-size: 1.3em;
+  margin-bottom: 2.5em;
+  max-width: 600px;
+  opacity: 0.85;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  width: 90%;
+  max-width: 1000px;
+  padding-bottom: 50px;
+}
+
+.option {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 25px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 500;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  transform: perspective(1000px);
+}
+
+.option:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent);
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 255, 213, 0.3);
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9em;
+  padding: 15px;
+  opacity: 0.6;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* === Responsive === */
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  .option {
+    font-size: 1em;
+    padding: 18px;
+  }
+}

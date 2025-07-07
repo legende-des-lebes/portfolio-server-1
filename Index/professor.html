@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Professor Access</title>
+  <link rel="stylesheet" href="css/style_professor.css" />
+</head>
+<body>
+  <main>
+    <h1>👩‍🏫 Professor Verification</h1>
+    <input type="text" id="name" placeholder="Enter your name" />
+    <input type="email" id="email" placeholder="Enter your institutional email" />
+    <button onclick="verify()">Continue</button>
+  </div>
+   <!-- Content shown after verification -->
+    <div id="student-content">
+      <h1>Hey there, IIT Student! 👨‍🎓</h1>
+      <p>Here’s everything tailored for you — my academic record, student projects, achievements, and campus life.</p>
+
+      <div class="options">
+        <a href="resume.pdf" class="option">📄 View Resume</a>
+        <a href="projects.html" class="option">💡 Student Projects</a>
+        <a href="mailto:you@example.com" class="option">📬 Contact Me</a>
+        <a href="index.html" class="option">⬅️ Back to Home</a>
+      </div>
+    </div>
+</main>
+  <script>
+    async function verify() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+
+      const res = await fetch('/log', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, role: 'professor' }) // Add role if needed
+      });
+
+      const text = await res.text();
+      if (res.ok) {
+        alert('Verified');
+        // window.location.href = 'dashboard.html';
+      } else {
+        alert(text);
+      }
+      
+    }
+  </script>
+</body>
+</html>
